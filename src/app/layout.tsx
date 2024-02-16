@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Nav } from '@/components/ui/nav';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,7 +23,9 @@ const RootLayout = ({
           attribute='class'
           defaultTheme='system'
           enableSystem={true}
+          disableTransitionOnChange={true}
         >
+          <Nav />
           {children}
         </ThemeProvider>
       </body>
