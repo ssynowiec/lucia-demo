@@ -3,6 +3,7 @@ import './globals.css';
 import { ReactNode } from 'react';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +17,15 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem={true}
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 };
