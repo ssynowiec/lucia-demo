@@ -18,7 +18,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='en' className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>
+      <body className='flex min-h-screen flex-col'>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
@@ -26,7 +26,7 @@ const RootLayout = ({
           disableTransitionOnChange={true}
         >
           <Nav />
-          {children}
+          <main className='flex flex-1'>{children}</main>
         </ThemeProvider>
       </body>
     </html>

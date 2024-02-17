@@ -12,7 +12,7 @@ import { ModeToggle } from '@/components/ui/theme-switcher';
 
 export const Nav = () => {
   return (
-    <NavigationMenu className='mx-auto flex max-w-screen-lg justify-between'>
+    <NavigationMenu className='mx-auto flex h-10 w-full max-w-screen-lg justify-between'>
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href='/' legacyBehavior passHref>
