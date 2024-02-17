@@ -57,7 +57,9 @@ export const LoginForm = () => {
             </FormItem>
           )}
         />
-        <Button type='submit'>Login</Button>
+        <Button type='submit' className='mt-4 w-full'>
+          Login
+        </Button>
       </form>
     </Form>
   );
