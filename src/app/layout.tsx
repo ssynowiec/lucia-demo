@@ -5,6 +5,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Nav } from '@/components/ui/nav';
+import { Footer } from '@/components/ui/footer';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -27,6 +28,7 @@ const RootLayout = ({
         >
           <Nav />
           <main className='flex flex-1'>{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
