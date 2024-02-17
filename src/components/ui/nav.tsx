@@ -15,6 +15,11 @@ export const Nav = () => {
     <NavigationMenu className='mx-auto flex max-w-screen-lg justify-between'>
       <NavigationMenuList>
         <NavigationMenuItem>
+          <Link href='/' legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Home
+            </NavigationMenuLink>
+          </Link>
           <Link href='/login' legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Login
