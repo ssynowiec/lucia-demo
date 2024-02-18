@@ -1,7 +1,8 @@
 # Lucia-auth-demo
 
 ## Live demo
-Coming soon
+
+https://lucia-auth-demo.vercel.app/
 
 ## Run locally
 
