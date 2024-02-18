@@ -34,7 +34,10 @@ export async function GET(request: Request): Promise<Response> {
       .then((rows) => rows[0]);
 
     if (existingUser) {
-      const session = await lucia.createSession(existingUser.id, {});
+      const session = await lucia.createSession(existingUser.id, {
+        username: existingUser.username,
+        github_id: existingUser.github_id,
+      });
       const sessionCookie = lucia.createSessionCookie(session.id);
       cookies().set(
         sessionCookie.name,
@@ -52,14 +55,24 @@ export async function GET(request: Request): Promise<Response> {
     const userId = generateId(15);
 
     // Replace this with your own DB client.
-    await db.insert(userTable).values({
-      id: userId,
-      github_id: githubUser.id,
-      username: githubUser.login,
-      hashed_password: '',
-    });
+    const newUser = await db
+      .insert(userTable)
+      .values({
+        id: userId,
+        github_id: githubUser.id,
+        username: githubUser.login,
+        hashed_password: '',
+      })
+      .returning({
+        username: userTable.username,
+        github_id: userTable.github_id,
+      })
+      .then((rows) => rows[0]);
 
-    const session = await lucia.createSession(userId, {});
+    const session = await lucia.createSession(userId, {
+      username: newUser.username,
+      github_id: newUser.github_id,
+    });
     const sessionCookie = lucia.createSessionCookie(session.id);
     cookies().set(
       sessionCookie.name,

@@ -26,11 +26,15 @@ declare module 'lucia' {
   interface Register {
     Lucia: typeof lucia;
     DatabaseUserAttributes: DatabaseUserAttributes;
-    DatabaseSessionAttributes: DatabaseUserAttributes;
+    DatabaseSessionAttributes: DatabaseSessionAttributes;
   }
 }
 
 interface DatabaseUserAttributes {
   username: string;
-  github_id: number;
+}
+
+interface DatabaseSessionAttributes {
+  username: string;
+  github_id?: string | null;
 }
