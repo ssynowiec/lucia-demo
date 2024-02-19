@@ -3,13 +3,21 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
+import { validateRequest } from '@/auth/validate-request';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Login',
   description: 'Login to your account.',
 };
 
-const Login = () => {
+const Login = async () => {
+  const { user } = await validateRequest();
+
+  if (user) {
+    return redirect('/protected');
+  }
+
   return (
     <div className='flex w-full flex-col items-center justify-center'>
       <h1 className='text-6xl font-extrabold'>Login</h1>
