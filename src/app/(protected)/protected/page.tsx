@@ -3,6 +3,12 @@ import { redirect } from 'next/navigation';
 import { db } from '@/auth/adapter';
 import { userTable } from '@/auth/schema';
 import { eq } from 'drizzle-orm';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Protected | Lucia auth demo',
+  description: 'Protected page for only logged in users.',
+};
 
 const Protected = async () => {
   const { user } = await validateRequest();

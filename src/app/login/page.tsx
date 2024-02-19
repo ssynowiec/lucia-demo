@@ -7,7 +7,7 @@ import { validateRequest } from '@/auth/validate-request';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
-  title: 'Login',
+  title: 'Login | Lucia auth demo',
   description: 'Login to your account.',
 };
 

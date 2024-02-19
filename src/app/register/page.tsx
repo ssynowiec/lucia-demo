@@ -2,7 +2,7 @@ import { RegisterForm } from '@/components/ui/register-form';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Register',
+  title: 'Register | Lucia auth demo',
   description: 'Create your account.',
 };
 
