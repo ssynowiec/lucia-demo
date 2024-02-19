@@ -1,4 +1,10 @@
 import { Wrapper } from '@/components/ui/wrapper';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home | Lucia auth demo',
+  description: 'Homepage Lucia auth demo app',
+};
 
 const Home = () => {
   return (
