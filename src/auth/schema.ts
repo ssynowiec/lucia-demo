@@ -24,3 +24,8 @@ export const registerFormSchema = z.object({
   password: z.string().min(8),
   repeatPassword: z.string().min(8),
 });
+
+export const loginFormSchema = z.object({
+  login: z.string().min(3).max(25),
+  password: z.string().min(8),
+});
