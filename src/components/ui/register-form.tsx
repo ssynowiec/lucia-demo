@@ -13,25 +13,26 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-const registerFormSchema = z.object({
-  login: z.string(),
-  password: z.string(),
-  repeatPassword: z.string(),
-});
+import { registerFormSchema } from '@/schema/register-schema';
+import { register } from '@/auth/register';
+import { useState } from 'react';
 
 export const RegisterForm = () => {
+  const [loading, setLoading] = useState(false);
+
   const form = useForm<z.infer<typeof registerFormSchema>>({
     resolver: zodResolver(registerFormSchema),
   });
 
-  const onSubmit = (values: z.infer<typeof registerFormSchema>) => {
-    console.log(values);
-  };
+  const onSubmit = form.handleSubmit(async (values) => {
+    setLoading(true);
+    await register(values);
+    setLoading(false);
+  });
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <FormField
           control={form.control}
           name='login'
@@ -71,8 +72,8 @@ export const RegisterForm = () => {
             </FormItem>
           )}
         />
-        <Button type='submit' className='mt-4 w-full'>
-          Register
+        <Button type='submit' className='mt-4 w-full' disabled={loading}>
+          {loading ? 'Please wait...' : 'Register'}
         </Button>
       </form>
     </Form>
