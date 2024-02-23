@@ -1,4 +1,5 @@
 import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import { z } from 'zod';
 
 export const userTable = pgTable('user', {
   id: text('id').primaryKey(),
@@ -16,4 +17,10 @@ export const sessionTable = pgTable('session', {
     withTimezone: true,
     mode: 'date',
   }).notNull(),
+});
+
+export const registerFormSchema = z.object({
+  login: z.string().min(3).max(25),
+  password: z.string().min(8),
+  repeatPassword: z.string().min(8),
 });

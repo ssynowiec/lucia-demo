@@ -13,9 +13,9 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerFormSchema } from '@/schema/register-schema';
 import { register } from '@/auth/register';
 import { useState } from 'react';
+import { registerFormSchema } from '@/auth/schema';
 
 export const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,10 @@ export const RegisterForm = () => {
 
   const onSubmit = form.handleSubmit(async (values) => {
     setLoading(true);
-    await register(values);
+    const res = await register(values);
+    if (res?.error) {
+      form.setError('login', { type: '', message: res.error });
+    }
     setLoading(false);
   });
 

@@ -3,13 +3,12 @@
 import { Argon2id } from 'oslo/password';
 import { generateId } from 'lucia';
 import { db } from '@/auth/adapter';
-import { userTable } from '@/auth/schema';
+import { registerFormSchema, userTable } from '@/auth/schema';
 import { eq } from 'drizzle-orm';
 import { lucia } from '@/auth/auth';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
-import { registerFormSchema } from '@/schema/register-schema';
 
 interface ActionResult {
   error: string;
