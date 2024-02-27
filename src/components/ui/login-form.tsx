@@ -69,13 +69,15 @@ export const LoginForm = () => {
           </Button>
         </form>
       </Form>
-      <p>Demo login:</p>
-      <p>
-        Login: <span className='font-bold'>admin</span>
-      </p>
-      <p>
-        Password: <span className='font-bold'>Pa$$w0rd</span>
-      </p>
+      <div className='mt-4'>
+        <p>Demo login:</p>
+        <p>
+          Login: <span className='font-bold'>admin</span>
+        </p>
+        <p>
+          Password: <span className='font-bold'>Pa$$w0rd</span>
+        </p>
+      </div>
     </>
   );
 };
