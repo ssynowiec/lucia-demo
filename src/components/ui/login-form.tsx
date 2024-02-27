@@ -35,38 +35,47 @@ export const LoginForm = () => {
   });
 
   return (
-    <Form {...form}>
-      <form onSubmit={onSubmit}>
-        <FormField
-          control={form.control}
-          name='login'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Login</FormLabel>
-              <FormControl>
-                <Input placeholder='johndoe' {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name='password'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder='**********' {...field} type='password' />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type='submit' className='mt-4 w-full'>
-          Login
-        </Button>
-      </form>
-    </Form>
+    <>
+      <Form {...form}>
+        <form onSubmit={onSubmit}>
+          <FormField
+            control={form.control}
+            name='login'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Login</FormLabel>
+                <FormControl>
+                  <Input placeholder='johndoe' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='password'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input placeholder='**********' {...field} type='password' />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type='submit' className='mt-4 w-full'>
+            Login
+          </Button>
+        </form>
+      </Form>
+      <p>Demo login:</p>
+      <p>
+        Login: <span className='font-bold'>admin</span>
+      </p>
+      <p>
+        Password: <span className='font-bold'>Pa$$w0rd</span>
+      </p>
+    </>
   );
 };
